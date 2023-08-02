@@ -10,6 +10,7 @@ import ItemList from "./Components/ItemList/ItemList";
 // Helpers
 import renderContent from "./Helpers/renderContent";
 import fetchData from "./Helpers/fetchData";
+import BodyContainer from "./Components/BodyContainer/BodyContainer";
 
 const API = process.env.REACT_APP_API_URL;
 const Route = "items";
@@ -35,8 +36,10 @@ function App() {
   console.log("App renders");
   return (
     <div className="App">
-      <h1>Food App</h1>
-      <div>{renderedContent}</div>
+      <h1>Our menu</h1>
+      <BodyContainer grid={Boolean(items.length !== 0)} overflow={Boolean(items.length !== 0)}>
+        {renderedContent}
+      </BodyContainer>
     </div>
   );
 }
