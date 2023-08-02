@@ -1,6 +1,8 @@
+import "./ItemCard.css";
+
 export default function ItemCard({ item }) {
-  console.log("ItemCard rendered");
   const { id, name, shortDescription, image, price, toppings } = item;
+  let priceInDollars = price.toFixed(2);
 
   return (
     <div className="ItemCard" key={id}>
@@ -14,8 +16,8 @@ export default function ItemCard({ item }) {
         <img width="100px" src={image} alt={name} />
       </div>
       <div className="ItemCardInfo">
-        <p>Price: {price}</p>
-        <p>Toppings: {toppings.join(", ")}</p>
+        <p>Price: ${priceInDollars}</p>
+        {toppings.length !== 0 && <p>Toppings: {toppings.join(", ")}</p>}
       </div>
     </div>
   );
