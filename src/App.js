@@ -29,15 +29,15 @@ function App() {
   );
 
   useEffect(() => {
-    console.log("useEffect fires");
     fetchData(API, Route, setLoading, setError, setItems);
   }, []);
 
-  console.log("App renders");
   return (
     <div className="App">
       <h1>Our menu</h1>
-      <BodyContainer grid={Boolean(items.length !== 0)} overflow={Boolean(items.length !== 0)}>
+      <BodyContainer
+        grid={Boolean(items.length !== 0)}
+        overflow={Boolean(items.length !== 0)}>
         {renderedContent}
       </BodyContainer>
     </div>
