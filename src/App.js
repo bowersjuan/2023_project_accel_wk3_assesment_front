@@ -15,7 +15,7 @@ const API = process.env.REACT_APP_API_URL;
 const Route = "items";
 
 function App() {
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
