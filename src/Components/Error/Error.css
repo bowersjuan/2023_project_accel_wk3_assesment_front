@@ -1,0 +1,12 @@
+.Error {
+  height: 300px;
+  width: 500px;
+  border-radius: 20px;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(231, 26, 26, 0.904);
+  color: yellow;
+}
