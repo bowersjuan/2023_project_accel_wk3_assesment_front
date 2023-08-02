@@ -24,20 +24,24 @@ function App() {
     loading,
     <Loading />,
     error,
-    <Error />,
+    <Error error={error} />,
     <ItemList data={items} />
   );
 
   useEffect(() => {
-    fetchData(API, Route, setLoading, setError, setItems);
+    try {
+      fetchData(API, Route, setLoading, setError, setItems);
+    } catch (err) {
+      setError(err.message);
+    }
   }, []);
 
   return (
     <div className="App">
       <h1>Our menu</h1>
       <BodyContainer
-        grid={Boolean(items.length !== 0)}
-        overflow={Boolean(items.length !== 0)}>
+        grid={Boolean(items.length !== 0 && !loading && !error)}
+        center={Boolean(loading || error)}>
         {renderedContent}
       </BodyContainer>
     </div>
