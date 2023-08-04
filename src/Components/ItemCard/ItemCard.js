@@ -8,16 +8,22 @@ export default function ItemCard({ item }) {
     <div className="ItemCard" key={id}>
       <div className="ItemCardTitle">
         <h2>{name}</h2>
-      </div>
-      <div className="ItemCardShortDescrip">
-        <p>{shortDescription}</p>
+        <p>" {shortDescription} "</p>
       </div>
       <div className="ItemCardAvatar">
-        <img width="100px" src={image} alt={name} />
+        <img width="150px" src={image} alt={name} />
       </div>
       <div className="ItemCardInfo">
-        <p>Price: ${priceInDollars}</p>
-        {toppings.length !== 0 && <p>Toppings: {toppings.join(", ")}</p>}
+        <p>
+          Price - <span id="ItemPrice">${priceInDollars}</span>
+        </p>
+        {toppings.length !== 0 && (
+          <p>
+            Toppings
+            <br />
+            <span id="ItemToppings">{toppings.join(", ")}</span>
+          </p>
+        )}
       </div>
     </div>
   );
